@@ -18,10 +18,10 @@
      <!-- vue -->
      <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
      <div id="app" class="container">
-        <div class="row ">
+        <div class="row">
             <div class="col-lg-4">
                 <div class="card chat-app people-list">
-                    <div  class="p-3 d-flex flex-column">
+                    <div class="p-3 d-flex flex-column">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="search input-group-text bg-white"><i class="fa fa-search"></i></span>
@@ -29,11 +29,11 @@
                             <input type="text" class="form-control" placeholder="Search...">
                         </div>
                         <ul class="list-unstyled chat-list mt-2 mb-0 bg-white rounded">
-                            <li class=" d-flex " v-for="(chat, index) in chats"  @click="selectChat(index)">
+                            <li class="d-flex" v-for="(chat, index) in chats" @click="selectChat(index)">
                                 <img :src="chat.image" alt="avatar" class="avatar">
                                 <div class="about">
                                     <div class="name">{{ chat.name }}</div>
-                                    <div class="status">Ultimo messaggio {{ chat.lastMessageTime }} </div>
+                                    <div class="status">Ultimo messaggio {{ chat.lastMessageTime }}</div>
                                 </div>
                             </li>
                         </ul>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-8">
                 <div class="card card-chat" v-if="selectedChat">
-                    <div class="card-header msg_head p-2">
+                    <div class="card-header p-2">
                         <div class="d-flex align-items-center">
                             <img :src="selectedChat.image" alt="avatar" class="avatar">
                             <div class="d-flex flex-column ms-3">
@@ -51,8 +51,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body msg_card_body">
-                        <!-- Contenuto del corpo del card-body -->
+                    <!-- Utilizzo della classe personalizzata per impostare l'altezza dinamica -->
+                    <div class="card-body  p-5">
+                       ciaone
                     </div>
                 </div>
                 <div class="card bg-secondary p-3 text-white" v-else>

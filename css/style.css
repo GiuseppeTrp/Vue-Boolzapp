@@ -5,6 +5,7 @@
 .chat-app .people-list {
     width: 280px;
     padding: 20px;
+    height: 100%;
 }
 
 .people-list .chat-list li {
@@ -32,4 +33,11 @@
     font-size: 13px;
 }
 
-
+.card-body{
+    background-image: url("../img/mine.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+  
+   
+}
