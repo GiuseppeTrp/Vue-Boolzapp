@@ -1,184 +1,82 @@
-const {createApp} = Vue;
-createApp({
-    data(){
+const app = Vue.createApp({
+    // Definizione di dati iniziali
+    data() {
         return {
+            // Lista dei contatti
             contacts: [
-                {
-                    name: 'Michele',
-                    avatar: './img/avatar_1.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Ricordati di stendere i panni',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 16:15:22',
-                            message: 'Tutto fatto!',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Fabio',
-                    avatar: './img/avatar_2.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '20/03/2020 16:30:00',
-                            message: 'Ciao come stai?',
-                            status: 'sent'
-                        },
-                        {
-                            date: '20/03/2020 16:30:55',
-                            message: 'Bene grazie! Stasera ci vediamo?',
-                            status: 'received'
-                        },
-                        {
-                            date: '20/03/2020 16:35:00',
-                            message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'sent'
-                        }
-                    ],
-                },
-                {
-                    name: 'Samuele',
-                    avatar: './img/avatar_3.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '28/03/2020 10:10:40',
-                            message: 'La Marianna va in campagna',
-                            status: 'received'
-                        },
-                        {
-                            date: '28/03/2020 10:20:10',
-                            message: 'Sicuro di non aver sbagliato chat?',
-                            status: 'sent'
-                        },
-                        {
-                            date: '28/03/2020 16:15:22',
-                            message: 'Ah scusa!',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Alessandro B.',
-                    avatar: './img/avatar_4.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Alessandro L.',
-                    avatar: './img/avatar_5.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Ricordati di chiamare la nonna',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Va bene, stasera la sento',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Claudia',
-                    avatar: './img/avatar_6.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Ciao Claudia, hai novità?',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Non ancora',
-                            status: 'received'
-                        },
-                        {
-                            date: '10/01/2020 15:51:00',
-                            message: 'Nessuna nuova, buona nuova',
-                            status: 'sent'
-                        }
-                    ],
-                },
-                {
-                    name: 'Federico',
-                    avatar: './img/avatar_7.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Fai gli auguri a Martina che è il suo compleanno!',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Grazie per avermelo ricordato, le scrivo subito!',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Davide',
-                    avatar: './img/avatar_8.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                            status: 'received'
-                        },
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                            status: 'sent'
-                        },
-                        {
-                            date: '10/01/2020 15:51:00',
-                            message: 'OK!!',
-                            status: 'received'
-                        }
-                    ],
-                }
+                { name: 'Michele', lastMessageTime: '12:30', image: "img/avatar_1.jpg", messages: [] }, // Contatto Michele
+                { name: 'Fabio', lastMessageTime: '12:45', image: "img/avatar_2.jpg", messages: [] }, // Contatto Fabio
+                { name: 'Samuele', lastMessageTime: '12:45', image: "img/avatar_3.jpg", messages: [] }, // Contatto Samuele
+                { name: 'Alessandro B.', lastMessageTime: '11:45', image: "img/avatar_4.jpg", messages: [] }, // Contatto Alessandro B.
+                { name: 'Alessandro L.', lastMessageTime: '11:45', image: "img/avatar_5.jpg", messages: [] }, // Contatto Alessandro L.
+                { name: 'Claudia', lastMessageTime: '11:00', image: "img/avatar_6.jpg", messages: [] }, // Contatto Claudia
+                { name: 'Federico', lastMessageTime: '11:00', image: "img/avatar_7.jpg", messages: [] }, // Contatto Federico
+                { name: 'Davide', lastMessageTime: '11:30', image: "img/avatar_8.jpg", messages: [] }, // Contatto Davide
+                // Aggiungi altri contatti qui
             ],
+            // Indice del contatto corrente
+            currentChat: 0,
+            // Messaggio inviato dall'utente
+            messageSent: { message: "tra un pò torno a casa" }, // Messaggio iniziale vuoto
             
-
-            activeContact: {},
-        }
+            // Testo di ricerca per filtrare i contatti
+            searchInput: ""
+        };
     },
-
-    mounted() {
-        this.activeContact = this.contacts[0]
-    },
-
+    // Metodi per interazioni dell'utente
     methods: {
-        changeActiveContact(index) {
-            // this.activeContactIndex = index;
-            this.activeContact = this.contacts[index]
+        // Metodo per filtrare i contatti in base alla ricerca dell'utente
+        filterContacts: function() {
+            var filteredContacts = [];
+            var searchInput = this.searchInput.toLowerCase();
+            
+            for (var i = 0; i < this.contacts.length; i++) {
+                var contactName = this.contacts[i].name.toLowerCase();
+                if (contactName.includes(searchInput)) {
+                    filteredContacts.push(this.contacts[i]);
+                }
+            }
+            
+            return filteredContacts;
         },
+        // Seleziona un contatto per visualizzare la conversazione
+       // Seleziona un contatto per visualizzare la conversazione
+selectChat: function(index) {
+        this.currentChat = index;
+    },
+    // Invia un nuovo messaggio
+    sendNewMessage: function() {
+        // Controlla se il messaggio non è vuoto
+        if (this.messageSent.message.trim() !== '') {
+            // Crea un nuovo messaggio con data attuale
+            var newMessage = {
+                message: this.messageSent.message, // Testo del messaggio
+                status: 'sent', // Stato iniziale: inviato
+                date: new Date().toLocaleTimeString() // Ottiene l'ora corrente
+            };
+            // Aggiungi il nuovo messaggio alla conversazione corrente
+            this.contacts[this.currentChat].messages.push(newMessage);
+
+            // Simula una risposta dall'interlocutore dopo 1 secondo
+            var self = this;
+            setTimeout(function() {
+                var replyMessage = {
+                    message: 'Ok', // Messaggio di risposta
+                    status: 'received', // Stato: ricevuto
+                    date: new Date().toLocaleTimeString() // Ottiene l'ora corrente
+                };
+                // Aggiungi la risposta alla conversazione corrente
+                self.contacts[self.currentChat].messages.push(replyMessage);
+            }, 1000);
+
+            // Resetta il campo di input
+            this.messageSent.message = '';
+        }
     }
-}).mount('#app')
+   
+
+    }
+});
+
+// Monta l'applicazione Vue sull'elemento con id "app"
+app.mount('#app');
